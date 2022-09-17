@@ -22,10 +22,25 @@ class ChatBotUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func testBasic() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
+        
+        
+        let userName = app.staticTexts["userName"]
+        XCTAssert(userName.waitForExistence(timeout: 5))
+        
+        
+        let online = app.staticTexts["status"]
+        XCTAssert(online.waitForExistence(timeout: 5))
+        
+        let verticalScrollBar2PagesCollectionView = XCUIApplication().collectionViews.firstMatch
+        XCTAssert(verticalScrollBar2PagesCollectionView.waitForExistence(timeout: 5),"No messages")
+        
+        verticalScrollBar2PagesCollectionView.swipeUp()
+        verticalScrollBar2PagesCollectionView.swipeDown()
+        
 
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.

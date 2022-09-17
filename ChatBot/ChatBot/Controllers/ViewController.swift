@@ -11,28 +11,39 @@ import MessageKit
 import InputBarAccessoryView
 
 class ViewController:  MessagesViewController, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate, InputBarAccessoryViewDelegate {
+    
+    //MARK: Variables
+    
+    let currentUser = Sender(senderId: "self", displayName: "Vishal")
+    let otherUser = Sender(senderId: "other", displayName: "Priya")
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var conversation = [Conversation]()
+    var selectedMessage: Int = -1
+    var messages = [TextMessage]()
+    
+    //MARK: Input methods
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         
+        //Sending new message
         if selectedMessage == -1 {
-        let conversation = Conversation(context: self.context)
-        conversation.message = text
-        conversation.displayName = Bool.random() ? currentUser.displayName : otherUser.displayName
-        conversation.id = messages.count > 0 ? UUID().uuidString : messages.last?.messageId ?? "0"
-       
-       
-        
-        do{
-            try context.save()
-        }
-        catch{
+            let conversation = Conversation(context: self.context)
+            conversation.message = text
+            conversation.displayName = Bool.random() ? currentUser.displayName : otherUser.displayName
+            conversation.id = messages.count > 0 ? UUID().uuidString : messages.last?.messageId ?? "0"
+            do{
+                try context.save()
+            }
+            catch{
+                
+            }
+            self.getMessages(true)
+            inputBar.inputTextView.text = String()
+            inputBar.inputTextView.resignFirstResponder()
             
         }
-        
-        self.getMessages(true)
-        inputBar.inputTextView.text = String()
-        inputBar.inputTextView.resignFirstResponder()
-            
-        }
+        //Editing a message
         else{
             let conv = conversation[selectedMessage]
             
@@ -65,14 +76,7 @@ class ViewController:  MessagesViewController, MessagesDataSource, MessagesLayou
     }
     
     
-    let currentUser = Sender(senderId: "self", displayName: "Vishal")
-    let otherUser = Sender(senderId: "other", displayName: "Priyanka")
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    var conversation = [Conversation]()
-    var selectedMessage: Int = -1
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -85,20 +89,18 @@ class ViewController:  MessagesViewController, MessagesDataSource, MessagesLayou
         getMessages(true)
         
     }
-
     
-    var messages = [TextMessage]()
+    //MARK: Private methods
     
+    ///Set Whatsapp style background.
     private func setBackground(){
         guard let image = UIImage(named: "image.png") else{
             return
         }
         self.view.backgroundColor = UIColor(patternImage: image)
         messagesCollectionView.backgroundColor = .clear
-        
-        
     }
-
+    
     
     func currentSender() -> SenderType {
         return currentUser
@@ -113,7 +115,9 @@ class ViewController:  MessagesViewController, MessagesDataSource, MessagesLayou
     }
     
     
-    
+    ///Get messages from local storage
+    /// - Parameters:
+    ///   - firstLoad: indicating value so that screen scrolls to last message if required.
     private func getMessages(_ firstLoad: Bool = false){
         
         do{
@@ -136,12 +140,12 @@ class ViewController:  MessagesViewController, MessagesDataSource, MessagesLayou
         
     }
     
-    
+    ///Modify data to be saved in messages array for local storage
     private func setData(){
         for item in self.conversation{
             
             //Need to workaround as forgot to add sender in coredata
-          
+            
             let name = item.displayName ?? "sender"
             let sender = currentSender().displayName == name ? currentUser : otherUser
             let id = "\(item.id)"
@@ -155,28 +159,33 @@ class ViewController:  MessagesViewController, MessagesDataSource, MessagesLayou
 }
 
 extension ViewController: MessageCellDelegate,UITextViewDelegate{
+    ///Edit the message.
+    ///  - Parameters :
+    ///     - cell : the corrresponding message to be edited
     func didTapEdit(in cell: MessageCollectionViewCell) {
         let indexPath = messagesCollectionView.indexPath(for: cell)!
         let message = messageForItem(at: indexPath, in: messagesCollectionView)
         selectedMessage = indexPath.section
         messageInputBar.inputTextView.text = getTheMessageText(messageKind: message.kind)
         messageInputBar.inputTextView.becomeFirstResponder()
-        editMessage(indexPath.section)
         
     }
     
-    
+    ///Get message from the custom type "kind"
     func getTheMessageText(messageKind: MessageKind) -> String {
         if case .text(let value) = messageKind {
             return value
         }
         return ""
     }
-    
-    
-    private func editMessage(_ index: Int){
-        
-        
-        
+    ///Set avatar image
+    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        if message.sender.displayName == currentUser.displayName{
+        avatarView.set(avatar: Avatar(image: UIImage(systemName: "person.circle.fill"), initials: "VT"))
+        }
+        else{
+            avatarView.set(avatar: Avatar(image: UIImage(systemName: "person.circle.fill"), initials: "PM"))
+        }
     }
+    
 }

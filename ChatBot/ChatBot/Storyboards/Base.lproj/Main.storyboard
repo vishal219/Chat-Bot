@@ -29,35 +29,29 @@
                                             <constraint firstAttribute="height" constant="40" id="EoU-pi-WE7"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Person" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNc-Dz-aw1">
-                                        <rect key="frame" x="70" y="43" width="50.5" height="19.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vishal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNc-Dz-aw1">
+                                        <rect key="frame" x="70" y="43" width="44" height="19.5"/>
+                                        <accessibility key="accessibilityConfiguration" label="userName"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="online" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0g-Tt-YTZ">
                                         <rect key="frame" x="70" y="59" width="37" height="16"/>
+                                        <accessibility key="accessibilityConfiguration" label="status"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6N-34-xPr">
-                                        <rect key="frame" x="328" y="40" width="58" height="31"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Clear"/>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.070588235294117646" green="0.5490196078431373" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="G6N-34-xPr" secondAttribute="trailing" constant="28" id="5kA-XA-ery"/>
                                     <constraint firstAttribute="height" constant="80" id="EUX-tp-Ity"/>
                                     <constraint firstItem="kis-eU-Hat" firstAttribute="leading" secondItem="ftd-jI-HIc" secondAttribute="leading" constant="20" id="OjK-61-vrh"/>
                                     <constraint firstItem="kis-eU-Hat" firstAttribute="top" secondItem="ftd-jI-HIc" secondAttribute="top" constant="40" id="StI-sn-H69"/>
                                     <constraint firstItem="F0g-Tt-YTZ" firstAttribute="top" secondItem="nNc-Dz-aw1" secondAttribute="bottom" constant="-3.5" id="W4K-Za-RFn"/>
                                     <constraint firstItem="F0g-Tt-YTZ" firstAttribute="leading" secondItem="nNc-Dz-aw1" secondAttribute="leading" id="iJa-Go-P2k"/>
                                     <constraint firstItem="nNc-Dz-aw1" firstAttribute="leading" secondItem="kis-eU-Hat" secondAttribute="trailing" constant="10" id="jna-ZU-0Lj"/>
-                                    <constraint firstItem="G6N-34-xPr" firstAttribute="top" secondItem="ftd-jI-HIc" secondAttribute="top" constant="40" id="u91-tB-wdf"/>
                                     <constraint firstItem="nNc-Dz-aw1" firstAttribute="top" secondItem="kis-eU-Hat" secondAttribute="top" constant="3" id="yjW-ad-AVJ"/>
                                 </constraints>
                             </view>
