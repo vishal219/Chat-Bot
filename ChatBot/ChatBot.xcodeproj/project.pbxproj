@@ -10,6 +10,8 @@
 		11214C97D99DD355FB90A785 /* Pods_ChatBot_ChatBotUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CBFF449CD89F36DB4173959 /* Pods_ChatBot_ChatBotUITests.framework */; };
 		20813CE4E29E5416DD4A1356 /* Pods_ChatBot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4DC5CB2C079BA464DE62399 /* Pods_ChatBot.framework */; };
 		490469B3882A51EFA6C19DD2 /* Pods_ChatBotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C232F25A0D3882F1C9EA9BD8 /* Pods_ChatBotTests.framework */; };
+		AC73475428D5E5230012A392 /* Conversation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC73475228D5E5230012A392 /* Conversation+CoreDataClass.swift */; };
+		AC73475528D5E5230012A392 /* Conversation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC73475328D5E5230012A392 /* Conversation+CoreDataProperties.swift */; };
 		AC838A6328D596F900C4C190 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC838A6228D596F900C4C190 /* AppDelegate.swift */; };
 		AC838A6528D596F900C4C190 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC838A6428D596F900C4C190 /* SceneDelegate.swift */; };
 		AC838A6728D596F900C4C190 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC838A6628D596F900C4C190 /* ViewController.swift */; };
@@ -20,6 +22,7 @@
 		AC838A7D28D596FA00C4C190 /* ChatBotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC838A7C28D596FA00C4C190 /* ChatBotTests.swift */; };
 		AC838A8728D596FB00C4C190 /* ChatBotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC838A8628D596FB00C4C190 /* ChatBotUITests.swift */; };
 		AC838A8928D596FB00C4C190 /* ChatBotUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC838A8828D596FB00C4C190 /* ChatBotUITestsLaunchTests.swift */; };
+		AC838A9A28D5A4F800C4C190 /* ChatModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC838A9928D5A4F800C4C190 /* ChatModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,8 @@
 		2BD445B603DC018DB3B46449 /* Pods-ChatBot-ChatBotUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatBot-ChatBotUITests.release.xcconfig"; path = "Target Support Files/Pods-ChatBot-ChatBotUITests/Pods-ChatBot-ChatBotUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7CBFF449CD89F36DB4173959 /* Pods_ChatBot_ChatBotUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatBot_ChatBotUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C11471340B7D4CC5F8E9D4 /* Pods-ChatBot-ChatBotUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatBot-ChatBotUITests.debug.xcconfig"; path = "Target Support Files/Pods-ChatBot-ChatBotUITests/Pods-ChatBot-ChatBotUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		AC73475228D5E5230012A392 /* Conversation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conversation+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		AC73475328D5E5230012A392 /* Conversation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conversation+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		AC838A5F28D596F900C4C190 /* ChatBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC838A6228D596F900C4C190 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC838A6428D596F900C4C190 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +63,7 @@
 		AC838A8228D596FB00C4C190 /* ChatBotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatBotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC838A8628D596FB00C4C190 /* ChatBotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotUITests.swift; sourceTree = "<group>"; };
 		AC838A8828D596FB00C4C190 /* ChatBotUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AC838A9928D5A4F800C4C190 /* ChatModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModels.swift; sourceTree = "<group>"; };
 		C232F25A0D3882F1C9EA9BD8 /* Pods_ChatBotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatBotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4DC5CB2C079BA464DE62399 /* Pods_ChatBot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatBot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E087F7BB88C3C6AE8411D44E /* Pods-ChatBot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatBot.release.xcconfig"; path = "Target Support Files/Pods-ChatBot/Pods-ChatBot.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,7 +119,6 @@
 				14646FA3D53F83D9F2B2D22B /* Pods-ChatBotTests.debug.xcconfig */,
 				FF3CDB1DDB0CED38E4FCB703 /* Pods-ChatBotTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -142,10 +147,13 @@
 		AC838A6128D596F900C4C190 /* ChatBot */ = {
 			isa = PBXGroup;
 			children = (
+				AC838A9828D5A4A800C4C190 /* Storyboards */,
+				AC838A9728D5A49300C4C190 /* ViewModels */,
+				AC838A9628D5A48400C4C190 /* Models */,
+				AC838A9528D5A47700C4C190 /* Controllers */,
 				AC838A6228D596F900C4C190 /* AppDelegate.swift */,
 				AC838A6428D596F900C4C190 /* SceneDelegate.swift */,
 				AC838A6628D596F900C4C190 /* ViewController.swift */,
-				AC838A6828D596F900C4C190 /* Main.storyboard */,
 				AC838A6E28D596FA00C4C190 /* Assets.xcassets */,
 				AC838A7028D596FA00C4C190 /* LaunchScreen.storyboard */,
 				AC838A7328D596FA00C4C190 /* Info.plist */,
@@ -169,6 +177,38 @@
 				AC838A8828D596FB00C4C190 /* ChatBotUITestsLaunchTests.swift */,
 			);
 			path = ChatBotUITests;
+			sourceTree = "<group>";
+		};
+		AC838A9528D5A47700C4C190 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AC838A9628D5A48400C4C190 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AC73475228D5E5230012A392 /* Conversation+CoreDataClass.swift */,
+				AC73475328D5E5230012A392 /* Conversation+CoreDataProperties.swift */,
+				AC838A9928D5A4F800C4C190 /* ChatModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AC838A9728D5A49300C4C190 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		AC838A9828D5A4A800C4C190 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				AC838A6828D596F900C4C190 /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,6 +451,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC838A6728D596F900C4C190 /* ViewController.swift in Sources */,
+				AC73475528D5E5230012A392 /* Conversation+CoreDataProperties.swift in Sources */,
+				AC838A9A28D5A4F800C4C190 /* ChatModels.swift in Sources */,
+				AC73475428D5E5230012A392 /* Conversation+CoreDataClass.swift in Sources */,
 				AC838A6D28D596F900C4C190 /* ChatBot.xcdatamodeld in Sources */,
 				AC838A6328D596F900C4C190 /* AppDelegate.swift in Sources */,
 				AC838A6528D596F900C4C190 /* SceneDelegate.swift in Sources */,

@@ -241,8 +241,8 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIGestureRecogni
     }
 
     private func setupConstraints() {
-        messagesCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        
+        messagesCollectionView.translatesAutoresizingMaskIntoConstraints = true
+        messagesCollectionView.frame = CGRect(x: 0.0, y: 100.0, width: view.frame.width, height: view.frame.height - 100.0)
         let top = messagesCollectionView.topAnchor.constraint(equalTo: view.topAnchor)
         let bottom = messagesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         let leading = messagesCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
@@ -354,6 +354,7 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIGestureRecogni
             } else {
                 let cell = messagesCollectionView.dequeueReusableCell(TextMessageCell.self, for: indexPath)
                 cell.configure(with: message, at: indexPath, and: messagesCollectionView)
+               
                 return cell
             }
         case .photo, .video:

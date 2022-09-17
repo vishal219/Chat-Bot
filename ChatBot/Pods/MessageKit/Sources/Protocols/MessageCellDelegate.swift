@@ -26,6 +26,7 @@ import Foundation
 
 /// A protocol used by `MessageContentCell` subclasses to detect taps in the cell's subviews.
 public protocol MessageCellDelegate: MessageLabelDelegate {
+    func didTapEdit(in cell: MessageCollectionViewCell)
 
     /// Triggered when a tap occurs in the background of the cell.
     ///

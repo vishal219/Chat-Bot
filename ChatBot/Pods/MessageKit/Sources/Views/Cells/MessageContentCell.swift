@@ -38,6 +38,18 @@ open class MessageContentCell: MessageCollectionViewCell {
         containerView.layer.masksToBounds = true
         return containerView
     }()
+    
+    open var buttoninfo: UIButton = {
+        let label = UIButton()
+        if #available(iOS 13.0, *) {
+            label.setBackgroundImage(UIImage(systemName: "info.circle.fill"), for: .normal)
+        } else {
+            // Fallback on earlier versions
+        }
+        label.tintColor = .white
+        return label
+    }()
+    
 
     /// The top label of the cell.
     open var cellTopLabel: InsetLabel = {
@@ -110,7 +122,8 @@ open class MessageContentCell: MessageCollectionViewCell {
             cellBottomLabel,
             messageContainerView,
             avatarView,
-            messageTimestampLabel
+            messageTimestampLabel,
+            buttoninfo
         )
     }
 
@@ -188,6 +201,8 @@ open class MessageContentCell: MessageCollectionViewCell {
             delegate?.didTapMessageBottomLabel(in: self)
         case accessoryView.frame.contains(touchLocation):
             delegate?.didTapAccessoryView(in: self)
+        case buttoninfo.frame.contains(touchLocation):
+            delegate?.didTapEdit(in: self)
         default:
             delegate?.didTapBackground(in: self)
         }
@@ -211,13 +226,16 @@ open class MessageContentCell: MessageCollectionViewCell {
     /// - attributes: The `MessagesCollectionViewLayoutAttributes` for the cell.
     open func layoutAvatarView(with attributes: MessagesCollectionViewLayoutAttributes) {
         var origin: CGPoint = .zero
+        var buttonOrigin: CGPoint = .zero
         let padding = attributes.avatarLeadingTrailingPadding
 
         switch attributes.avatarPosition.horizontal {
         case .cellLeading:
             origin.x = padding
+            buttonOrigin.x = attributes.frame.width - attributes.avatarSize.width - padding
         case .cellTrailing:
             origin.x = attributes.frame.width - attributes.avatarSize.width - padding
+            buttonOrigin.x = padding
         case .natural:
             fatalError(MessageKitError.avatarPositionUnresolved)
         }
@@ -237,7 +255,12 @@ open class MessageContentCell: MessageCollectionViewCell {
             break
         }
 
+        buttoninfo.frame = CGRect(origin: buttonOrigin, size: CGSize(width: 20, height: 20))
+        buttoninfo.addTarget(self, action: #selector(didEdit), for: .touchDown)
         avatarView.frame = CGRect(origin: origin, size: attributes.avatarSize)
+    }
+    @objc func didEdit(){
+        delegate?.didTapEdit(in: self)
     }
 
     /// Positions the cell's `MessageContainerView`.
